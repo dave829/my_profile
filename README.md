@@ -1,4 +1,4 @@
 # my_profile
 # profile_page
-# vanilla_js
+# html/ css/ vanilla_js
 
