@@ -84,8 +84,10 @@
               class="home__title"
               aria-label="Hello, I'm an Eating Coder Dave"
             >
-              Hello <br />I&#39;m
-              <strong class="home__title--strong">an Eating Coder</strong>, Dave
+              Hello <br />
+              I&#39;m
+              <strong class="home__title--strong">an Eating Coder</strong>
+              , Dave
             </h2>
             <p class="home__description">
               A software engineer currently residing in Seoul, Korea
@@ -152,47 +154,53 @@
           <p class="description">Skills & Attributes</p>
           <br />
           <br />
-          <h3>Overall</h3>
-          <br />
-          <p>
-            I like to implement simple but comfortable, trendy interfaces and
-            animations<br />
-            Even if there is something I don't know about my job, I will
-            actively explore it and try to produce good results
-          </p>
-          <br />
-          <h3>Web</h3>
-          <br />
-          <p>Have learned the SEO settings</p>
-          <br />
-          <h3>Communication</h3>
-          <br />
-          <p>
-            Ask questions after actively exploring what you don't know
+          <div class="skills__menu">
+            <h3 class="skills__heading">Overall</h3>
             <br />
-            Communicate with humility, respect and learning from each other
-          </p>
-          <br />
-          <h3>JavaScript</h3>
-          <br />
-          <p>Use JavaScript and TypeScript to some extent</p>
-          <br />
-          <h3>React</h3>
-          <br />
-          <p>
-            Use React hooks, and try to make almost all components a function<br />
-            Identify and apply various component design patterns, and isolate
-            components in a simple way
-          </p>
-          <br />
-          <h3>NextJs</h3>
-          <br />
-          <p>
-            I was able to experience a simple full stack through NextJs.
+            <p>
+              I like to implement simple but comfortable, trendy interfaces and
+              animations<br />
+              Even if there is something I don't know about my job, I will
+              actively explore it and try to produce good results
+            </p>
             <br />
-            I've experienced SSR and easy routing implementation, and we've seen
-            a lot of NextJs offers I've experienced the convenience function.
-          </p>
+            <h3 class="skills__heading">Web</h3>
+            <br />
+            <p>Have learned the SEO settings</p>
+            <br />
+            <h3 class="skills__heading">Communication</h3>
+            <br />
+            <p>
+              Ask questions after actively exploring what you don't know
+              <br />
+              Communicate with humility, respect and learning from each other
+            </p>
+            <br />
+            <h3 class="skills__heading">JavaScript</h3>
+            <br />
+            <p>Use JavaScript and <del>TypeScript</del> to some extent</p>
+            <br />
+            <h3 class="skills__heading">React</h3>
+            <br />
+            <p>
+              Use React hooks, and try to make almost all components a
+              function<br />
+              Identify and apply various component design patterns, and isolate
+              components in a simple way
+            </p>
+            <br />
+            <h3 class="skills__heading">NextJs</h3>
+            <br />
+            <p>
+              I was able to experience a simple full stack through NextJs.
+              <br />
+              I've experienced SSR and easy routing implementation, and we've
+              seen a lot of NextJs offers I've experienced the convenience
+              function.
+            </p>
+            <br />
+            <br />
+          </div>
           <div class="skills">
             <section class="skills__coding">
               <h3 class="skills__title">Coding Skills</h3>
@@ -223,7 +231,8 @@
                 </li>
                 <li class="bar">
                   <div class="bar__metadata">
-                    <span>TypeScript</span><span>80%</span>
+                    <span><del>TypeScript</del></span
+                    ><span>80%</span>
                   </div>
                   <div class="bar__bg">
                     <div class="bar__value" style="width: 80%"></div>
@@ -414,15 +423,16 @@
       <section id="testimonial" class="section max-container">
         <h2 class="title">Testimonial</h2>
         <p class="description">See what they say about me</p>
-        <ul class="testimonials" style="filter: blur(4px)">
+        <ul class="testimonials">
           <li class="testimonial">
             <img
               src="images/testimonials/people1.webp"
               alt="people1"
               class="testimonial__img"
+              style="filter: blur(4px)"
             />
             <div class="testimonial__bubble">
-              <p>
+              <p style="filter: blur(4px)">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem ad
                 iusto, ea alias, at sit libero laboriosam eaque eum, reiciendis
                 obcaecati vitae non reprehenderit beatae officiis. Dolore
@@ -430,7 +440,7 @@
               </p>
               <p>
                 <a href="#" class="testimonial__bubble__name">James Kim</a>
-                /Google
+                /Company
               </p>
             </div>
           </li>
@@ -439,17 +449,18 @@
               src="images/testimonials/people2.webp"
               alt="people2"
               class="testimonial__img"
+              style="filter: blur(4px)"
             />
             <div class="testimonial__bubble">
-              <p>
+              <p style="filter: blur(4px)">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
                 adipisci quibusdam perspiciatis neque consequuntur nostrum
                 quisquam dolore consequatur voluptatum animi laborum, sequi
                 ipsum rerum voluptatibus sit ab similique quos velit?
               </p>
               <p>
-                <a href="#" class="testimonial__bubble__name">Anna Jin</a>
-                /Samsung
+                <a href="#" class="testimonial__bubble__name">Tom</a>
+                /Company
               </p>
             </div>
           </li>
@@ -458,9 +469,10 @@
               src="images/testimonials/people3.webp"
               alt="people3"
               class="testimonial__img"
+              style="filter: blur(4px)"
             />
             <div class="testimonial__bubble">
-              <p>
+              <p style="filter: blur(4px)">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Perferendis, mollitia. Fugiat recusandae unde ducimus harum
                 voluptas earum reiciendis expedita inventore quas ab eum
@@ -469,7 +481,7 @@
               </p>
               <p>
                 <a href="#" class="testimonial__bubble__name">Anna Jin</a>
-                /Samsung
+                /Company
               </p>
             </div>
           </li>
