@@ -1,0 +1,226 @@
+>필터링 로직
+----
+
+html 에서는
+
+필터될 리스트를 만들고
+All 
+Front-end 
+Back-End
+Mobile 
+이렇게 
+ul -> li -> button -> span 숫자 
+해서 
+요소 만든 다음,
+요소를 직접 로직에 쓰는게 아니고,
+html 제공되는 
+data-category 를 이용할껀데,
+
+버튼요소에 
+ <button class="category category--selected" data-category="all">
+이런식으로 
+<button class="category" data-category="front-end">
+<button class="category" data-category="back-end">
+<button class="category" data-category="mobile">
+
+data-category 하고 이름 작명 해준 뒤,
+
+해당 요소들에 data-type을 달아 준다.
+
+<li class="project" data-type="front-end">
+
+<li class="project" data-type="back-end">
+
+<li class="project" data-type="mobile">
+
+이런식으로
+목록에
+data-type 달아주고
+작명을 
+data-category 에 작명 햇던 거랑 
+일치 하도록 작명 하고,
+
+그러면,
+
+필터링 로직은 대략,
+
+화면에는
+All / FrontEnd / BackEnd / Mobile
+이런 버튼이 있고, 
+이게 여기에 데이터 카테고리를 넣어줘서 
+All / FrontEnd / BackEnd / Mobile 똑같이 작명을 해서
+아무튼 설정이 되있는거고,
+
+애네랑 ,
+data-type 애들이랑
+일치하면 필터링이 되게 설정을 해주면 된다.
+
+data-type은,
+프로젝트가 6개 있다 치면
+위에서 처럼
+FrontEnd / BackEnd / Mobile 이렇게
+li 태그에 data-type 을 넣어주면되는거다.
+
+그래서 
+즉,
+data-category 이랑,
+data-type 이랑
+
+일치하는걸 화면으로 나타내 주면 된다.
+
+----
+
+자바스크립트 파일로 넘어가서,
+로직을 짜면 되는데,
+--
+
+쿼리셀렉터로 data-category 되있는 요소 가져와서,
+const categories = document.querySelector('.categories');
+
+똑같이
+쿼리셀렉터로 data-type 되있는 요소 가져와서,
+All은 전체를 필터하는거니까, 즉 전체 가져와야하니까,
+const projects = document.querySelectorAll('.project');
+
+각자 접근을 하면된다.
+
+그래서
+가져와서,
+
+categories에 클릭 이벤트리스너 걸고,
+해당 요소가 클릭이 될때,
+즉, 한 FrontEnd프로젝트가 클릭 되었을 시,
+그 요소의 값과,
+즉, 
+const filter = event.target.dataset.category;
+의 값이 All 일 수도 있고,
+FrontEnd일수도있고,,등등
+과,
+data-category의 값이 일치를 하면,
+해당 결과를 보여주면 된다.
+
+그러면,
+
+지금 
+이벤트 리스너 함수에서는,
+
+const filter = event.target.dataset.category;
+요거 를 이용해서, 해야하는데,
+
+이벤트 리스너 안에서 다 처리를 해야하니까,
+
+
+이벤트 리스너 밖에서 함수들을 만들고,
+처리를 하는 식으로,
+
+즉, 
+함수들이 이벤트 리스너 안에서 실행이 되는 형태로,
+코드를 짜면 되겠다.
+
+그러면,
+
+어떤 함수가 필요하냐면,
+
+일단,
+예를들어,
+FrontEnd가 클릭이 되었을떄,
+
+data-category 에서 
+"FrontEnd"
+를 가져오고,
+
+일단,
+
+저위에 
+쿼리셀렉트 올이니까,
+모든 프로젝트요소를 배열로 다 가지고 온다.
+
+그래서 
+반복문 돌려서 
+보여주면된다.
+projects.forEach((project) => {
+    if (filter === 'all' || filter === project.dataset.type) {
+      project.style.display = 'block';
+    } else {
+      project.style.display = 'none';
+    }
+  });
+
+지금 저project 부분이 
+All FrontEnd BackEnd Mobile 
+이렇게 문자열이 오면 
+어떻게 할껀지에 대한 로직이다.
+(projects 를 forEach를 돌리는 거니까)
+
+if 문으로 
+filter === 'all' 이 나오거나 
+filter === project.dataset.type
+하면,
+project.style.display = 'block';
+으로 하고,
+
+아니면 none 이다.
+
+즉,
+all 누르면 
+다 나오고,
+FrontEnd 누르면,
+그것만 나오고 나머진 none 
+이런식으로 잘 나온다.
+
+----
+
+근데 지금
+마우스 클릭시 
+요소에 화면에 선택되어진 스타일을 
+꾸며주고싶은데,
+그럴려면,
+
+all 누르면 all만 색깔이 선택되고,
+backend 누으면 색깔 선택되고,
+all은 사라져야겠죠.
+
+그럼 css 로 하면되는데,
+
+함수 하나 만들고
+인자로 선택된 타겟요소 하나 넘기고,
+그 넘겨진 요소는
+  target.classList.add('category--selected');
+해서 
+category--selected 된 애는 
+원래 있던 애를 제거를 하고
+add를 해줘서,
+백그라운드 색갈하고 컬러 주면된다.
+
+-------------------------------------------
+-------------------------------------------
+
+* 실무에서 쓰는 js 
+스크롤링 하면, 
+자동으로 
+해당하는 섹션의 메뉴아이템을
+활성화 시켜주기(css효과 입히기)
+그리고
+클릭시 스르륵 활성화 시키기
+---
+
+IntersectionObserver 
+lazy loading 
+
+--
+
+
+active_menu.js 
+
+구현 계획
+
+1. 모든 섹션 요소들과 메뉴 아이템들을 가지고 온다.
+2. IntersectionObserver 를 사용해서 모든 섹션들을 관찰한다.
+3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+
+보여지는 섹션: 
+-다수의 섹션이 동시에 보여진다면, 가장 첫번째 섹션을 선택.
+-마지막 contact 섹션이 보여진다면, 가장 마지막 섹션을 선택.
+
+----------
+
